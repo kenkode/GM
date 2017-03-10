@@ -1,0 +1,99 @@
+Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if((selectedNode.getUserObject().toString()).equals("Social Security Rates")){
+                new nssfSetting().setVisible(true);
+                close();
+               }else if((selectedNode.getUserObject().toString()).equals("Hospital Security Rates")){
+               new nhifSetting().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Job Groups")){
+               new jobGroupSetting().setVisible(true);
+               new settings().setVisible(false);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Leave Types")){
+               new leaveFrame().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Salary Banks")){
+               new salary_bank().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Non-Cash Taxable Benefits")){
+               new nonCashSetting().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Non-Taxable Incomes")){
+               new nonTaxableSetting().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Taxable Income Relief")){
+               new taxReliefSetting().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Deductions")){
+               new deductionSetting().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Gratuity")){
+               new pensionSetting().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Appraisal Questions")){
+               new appraisalSettings().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Income Tax Table")){
+               new taxSettings().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Allowances")){
+               new allowanceSetting().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Earnings Journal")){
+               new earningJournal().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Education Level")){
+               new educationSetting().setVisible(true);
+               close();
+               }else if((selectedNode.getUserObject().toString()).equals("Type")){
+               new typeSettings().setVisible(true);
+               close();
+               }
+            }
+        });
+       
+        Payroll2.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode1 = (DefaultMutableTreeNode) Payroll2.getLastSelectedPathComponent();
+               if((selectedNode1.getUserObject().toString()).equals("Branches")){
+               new branchSettings().setVisible(true);
+               close();
+               }else if((selectedNode1.getUserObject().toString()).equals("Departments")){
+               new departmentSetting().setVisible(true);
+               close();
+               }else if((selectedNode1.getUserObject().toString()).equals("Currencies")){
+               new currencySetting().setVisible(true);
+               close();
+               }/*else if((selectedNode1.getUserObject().toString()).equals("Calender Types")){
+               new calendarSettings().setVisible(true);
+               close();
+               }else if((selectedNode1.getUserObject().toString()).equals("Holiday")){
+               new holidaySetting().setVisible(true);
+               close();
+               }else if((selectedNode1.getUserObject().toString()).equals("Payment Classes")){
+               new paymentClasses().setVisible(true);
+               close();
+               }else if((selectedNode1.getUserObject().toString()).equals("Receipt Classes")){
+               new ReceiptClasses().setVisible(true);
+               close();
+               }*/else if((selectedNode1.getUserObject().toString()).equals("Account Classes")){
+               new accClasses().setVisible(true);
+               close();
+               }else if((selectedNode1.getUserObject().toString()).equals("Chart of Accounts")){
+               new accChart().setVisible(true);
+               close();
+               }else if((selectedNode1.getUserObject().toString()).equals("Footnotes")){
+               JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+               }else if((selectedNode1.getUserObject().toString()).equals("Business Units")){
+               JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+               }else if((selectedNode1.getUserObject().toString()).equals("Financial Periods")){
+               JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+               }
+            }
+        });

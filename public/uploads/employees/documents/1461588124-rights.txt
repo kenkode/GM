@@ -1,0 +1,1101 @@
+public void rights(){
+     try{
+    String sql = "select * from user_account where user_name='"+login.userValue()+"'";
+    ps = conn.prepareStatement(sql);
+    rs = ps.executeQuery();
+    rs.next();
+    String hr_rights=rs.getString("create_employee_right");
+    String earn_rights=rs.getString("create_earnings_right");
+    String claims_rights=rs.getString("create_claims_right");
+    String ded_rights=rs.getString("create_deductions_right");
+    String users_rights=rs.getString("create_users_right");
+    String admin_rights=rs.getString("admin_right");
+    String payroll_rights=rs.getString("run_payroll_right");
+    String hr_rep=rs.getString("hr_report_right");
+    String exec_rights=rs.getString("exec_report_right");
+    String email_slip=rs.getString("email_slip_right");
+    if(admin_rights.equals("1") || (hr_rights.equals("1") && earn_rights.equals("1") && claims_rights.equals("1") && ded_rights.equals("1") && users_rights.equals("1") && payroll_rights.equals("1") && hr_rep.equals("1") && exec_rights.equals("1") && email_slip.equals("1") && admin_rights.equals("1"))){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    new employee_documents().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    new next_of_kin().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    new employee_leaves().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    new company_property().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    new work_occurence().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    new appraisal_score().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    new pay().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    new time_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    new day_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    new comission().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    new allowances().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    new bonuses().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    new non_cash_benefits().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    new non_taxable().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    new tax_income_relief().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    new deductions().setVisible(true);
+                    close();
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    new volFrame().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    new pension().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    new pension_employer().setVisible(true);
+                    close();
+                }
+            }
+        });
+     }else if(hr_rights.equals("1") && earn_rights.equals("0") && claims_rights.equals("0") && ded_rights.equals("0") && admin_rights.equals("0")){
+    
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    new employee_documents().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    new next_of_kin().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    new employee_leaves().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    new company_property().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    new work_occurence().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    new appraisal_score().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("EARNING")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                    
+                }else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                    
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+               }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }
+            }
+        });
+    }else if(hr_rights.equals("1") && earn_rights.equals("1") && claims_rights.equals("0") && ded_rights.equals("0") && admin_rights.equals("0")){
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    new employee_documents().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    new next_of_kin().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    new employee_leaves().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    new company_property().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    new work_occurence().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    new appraisal_score().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    new pay().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    new time_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    new day_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    new comission().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    new allowances().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    new bonuses().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("CLAIMS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                    
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    new tax_income_relief().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("DEDUCTIONS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                    
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }
+            }
+        });
+    }else if(hr_rights.equals("1") && earn_rights.equals("0") && claims_rights.equals("1") && ded_rights.equals("0") && admin_rights.equals("0")){
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    new employee_documents().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    new next_of_kin().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    new employee_leaves().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    new company_property().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    new work_occurence().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    new appraisal_score().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("EARNING")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                    
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                     new non_cash_benefits().setVisible(true);
+                     close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                      new non_taxable().setVisible(true);
+                     close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("DEDUCTIONS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                    
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+               }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }
+            }
+        });
+    }else if((hr_rights.equals("1") && earn_rights.equals("0") && claims_rights.equals("0") && ded_rights.equals("1") && admin_rights.equals("0"))){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    new employee_documents().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    new next_of_kin().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    new employee_leaves().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    new company_property().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    new work_occurence().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    new appraisal_score().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("EARNING")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("CLAIMS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    new deductions().setVisible(true);
+                    close();
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    new volFrame().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    new pension().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    new pension_employer().setVisible(true);
+                    close();
+                }
+            }
+        });
+     }else if(hr_rights.equals("1") && earn_rights.equals("1") && claims_rights.equals("1") && ded_rights.equals("0") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    new employee_documents().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    new next_of_kin().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    new employee_leaves().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    new company_property().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    new work_occurence().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    new appraisal_score().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    new pay().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    new time_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    new day_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    new comission().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    new allowances().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    new bonuses().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    new non_cash_benefits().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    new non_taxable().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    new tax_income_relief().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("DEDUCTIONS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }
+            }
+        });
+     }else if(hr_rights.equals("1") && earn_rights.equals("1") && claims_rights.equals("0") && ded_rights.equals("1") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    new employee_documents().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    new next_of_kin().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    new employee_leaves().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    new company_property().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    new work_occurence().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    new appraisal_score().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    new pay().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    new time_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    new day_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    new comission().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    new allowances().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    new bonuses().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("CLAIMS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    new tax_income_relief().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    new deductions().setVisible(true);
+                    close();
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    new volFrame().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    new pension().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    new pension_employer().setVisible(true);
+                    close();
+                }
+            }
+        });
+     }else if(hr_rights.equals("1") && earn_rights.equals("0") && claims_rights.equals("1") && ded_rights.equals("1") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    new employee_documents().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    new next_of_kin().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    new employee_leaves().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    new company_property().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    new work_occurence().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    new appraisal_score().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("EARNING")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    new non_cash_benefits().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    new non_taxable().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    new deductions().setVisible(true);
+                    close();
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    new volFrame().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    new pension().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    new pension_employer().setVisible(true);
+                    close();
+                }
+            }
+        });
+     }else if(hr_rights.equals("1") && earn_rights.equals("1") && claims_rights.equals("1") && ded_rights.equals("1") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    new employee_documents().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    new next_of_kin().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    new employee_leaves().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    new company_property().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    new work_occurence().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    new appraisal_score().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    new pay().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    new time_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    new day_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    new comission().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    new allowances().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    new bonuses().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    new non_cash_benefits().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    new non_taxable().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    new tax_income_relief().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    new deductions().setVisible(true);
+                    close();
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    new volFrame().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    new pension().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    new pension_employer().setVisible(true);
+                    close();
+                }
+            }
+        });
+     }else if(earn_rights.equals("1") && hr_rights.equals("0") && claims_rights.equals("0") && ded_rights.equals("0") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("EMPLOYEE")) {
+                  JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+                  JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    new pay().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    new time_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    new day_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    new comission().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    new allowances().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    new bonuses().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    new tax_income_relief().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+               }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                     JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }
+            }
+        });
+     }else if(hr_rights.equals("0") && earn_rights.equals("1") && claims_rights.equals("1") && ded_rights.equals("0") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("EMPLOYEE")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+                  JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    new pay().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    new time_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    new day_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    new comission().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    new allowances().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    new bonuses().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    new non_cash_benefits().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    new non_taxable().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    new tax_income_relief().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("DEDUCTIONS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }
+            }
+        });
+     }else if(hr_rights.equals("0") && earn_rights.equals("1") && claims_rights.equals("0") && ded_rights.equals("1") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("EMPLOYEE")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    new pay().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    new time_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    new day_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    new comission().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    new allowances().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    new bonuses().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("CLAIMS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    new tax_income_relief().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    new deductions().setVisible(true);
+                    close();
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    new volFrame().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    new pension().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    new pension_employer().setVisible(true);
+                    close();
+                }
+            }
+        });
+     }else if(hr_rights.equals("0") && earn_rights.equals("1") && claims_rights.equals("1") && ded_rights.equals("1") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("EMPLOYEE")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    new pay().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    new time_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    new day_earning().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    new comission().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    new allowances().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    new bonuses().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    new non_cash_benefits().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    new non_taxable().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    new tax_income_relief().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    new deductions().setVisible(true);
+                    close();
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    new volFrame().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    new pension().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    new pension_employer().setVisible(true);
+                    close();
+                }
+            }
+        });
+     }else if(claims_rights.equals("1") && hr_rights.equals("0") && earn_rights.equals("0") && ded_rights.equals("0") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("EMPLOYEE")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if ((selectedNode.getUserObject().toString()).equals("EARNING")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    new non_cash_benefits().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    new non_taxable().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("DEDUCTIONS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }
+            }
+        });
+     }else if(hr_rights.equals("0") && earn_rights.equals("0") && claims_rights.equals("1") && ded_rights.equals("1") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("EMPLOYEE")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("EARNING")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    new non_cash_benefits().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    new non_taxable().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    new deductions().setVisible(true);
+                    close();
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    new volFrame().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    new pension().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    new pension_employer().setVisible(true);
+                    close();
+                }
+            }
+        });
+     }else if(ded_rights.equals("1") && hr_rights.equals("0") && claims_rights.equals("0") && earn_rights.equals("0") && admin_rights.equals("0")){
+     
+    Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("EMPLOYEE")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");      
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }else if ((selectedNode.getUserObject().toString()).equals("EARNING")) {
+                   JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("CLAIMS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    new deductions().setVisible(true);
+                    close();
+                }else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    new volFrame().setVisible(true);
+                    close();
+                }else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    new pension().setVisible(true);
+                    close();
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    new pension_employer().setVisible(true);
+                    close();
+                }
+            }
+        });
+     }else{
+     Payroll.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                System.out.println(e.getPath().toString());
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Payroll.getLastSelectedPathComponent();
+                if ((selectedNode.getUserObject().toString()).equals("EMPLOYEE")) {
+                 JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Personal Details")) {
+                 JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Employee Documents")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Next of Kin")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Leave Taken")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Company Property")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Work Occurrences")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Appraisal Score")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("EARNING")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Basic Pay")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Hour")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Time Earnings - Day")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Commisions")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Allowances")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Bonuses")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("CLAIMS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Taxable Earnings")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Non-Cash Benefits")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Relief")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("DEDUCTIONS")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Deduction")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if((selectedNode.getUserObject().toString()).equals("Voluntary Nssf")){
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employee")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                } else if ((selectedNode.getUserObject().toString()).equals("Gratuity-Employer")) {
+                    JOptionPane.showMessageDialog(null,"You don`t have privilleges to this page!");
+                }
+            }
+        });
+     }
+     }catch(Exception e){
+        e.printStackTrace();
+     }
+    }

@@ -1,10 +1,10 @@
 <?php
 
-
+if (!function_exists('asMoney')){
 function asMoney($value) {
   return number_format($value, 2);
 }
-
+}
 ?>
 <html >
 
@@ -25,7 +25,7 @@ th {
 }
 .table {
   width: 100%;
-  margin-bottom: 2px;
+  margin-bottom: 50px;
 }
 hr {
   margin-top: 1px;
@@ -45,7 +45,7 @@ body {
 
 
  @page { margin: 170px 30px; }
- .header { position: fixed; left: 0px; top: -150px; right: 0px; height: 150px;  text-align: center; }
+ .header { position: top; left: 0px; top: -150px; right: 0px; height: 150px;  text-align: center; }
  .content {margin-top: -100px; margin-bottom: -150px}
  .footer { position: fixed; left: 0px; bottom: -180px; right: 0px; height: 50px;  }
  .footer .page:after { content: counter(page, upper-roman); }
@@ -58,7 +58,7 @@ body {
 
 <body>
 
-  <div class="header">
+  <div class="header" style='margin-top:-150px;'>
      <table >
 
       <tr>
@@ -67,16 +67,16 @@ body {
        
         <td style="width:150px">
 
-            <img src="{{ '../images/logo.png' }}" alt="{{ $organization->logo }}" width="150px"/>
+            <img src="{{asset('public/uploads/logo/'.$organization->logo)}}" alt="{{ $organization->logo }}" width="150px"/>
     
         </td>
 
         <td>
         <strong>
-          {{ strtoupper($organization->name)}}<br>
-          </strong>
-          {{ $organization->phone}} |
-          {{ $organization->email}} |
+          {{ strtoupper($organization->name)}}
+          </strong><br>
+          {{ $organization->phone}}<br>
+          {{ $organization->email}}<br>
           {{ $organization->website}}<br>
           {{ $organization->address}}
        
@@ -98,15 +98,15 @@ body {
    </div>
 
 
-
+<br>
 <div class="footer">
      <p class="page">Page <?php $PAGE_NUM ?></p>
    </div>
 
-
-	<div class="content" style='margin-top:0px;'>
-   <div align="center"><strong>Leave Application Report</strong></div>
-
+<br>
+	<div class="content" style='margin-top:-70px;'>
+   <div align="center"><strong>Vacation Application Report</strong></div>
+   <br>
     <table class="table table-bordered" border='1' cellspacing='0' cellpadding='0'>
 
       <tr>
@@ -116,11 +116,11 @@ body {
         <td width='20'><strong># </strong></td>
         <td><strong>Payroll Number </strong></td>
         <td><strong>Employee Name </strong></td>
-        <td><strong>Leave Type </strong></td>
+        <td><strong>Vacation Type </strong></td>
         <td><strong>Application Date </strong></td>
         <td><strong>Start Date </strong></td>
         <td><strong>End Date </strong></td>   
-        <td><strong>Leave Days </strong></td>
+        <td><strong>Vacation Days </strong></td>
       </tr>
       <?php $i =1; ?>
       @foreach($apps as $app)
@@ -129,13 +129,17 @@ body {
 
        <td td width='20'>{{$i}}</td>
         <td> {{ $app->personal_file_number }}</td>
-        <td> {{ $app->last_name.' '.$app->first_name }}</td>
+        @if($app->middle_name != null || $app->middle_name != '')
+        <td> {{$app->first_name.' '.$app->middle_name.' '.$app->last_name}}</td>
+        @else
+        <td> {{$app->first_name.' '.$app->last_name}}</td>
+        @endif
         <td> {{ $app->name }}</td>
         <td> {{ $app->application_date }}</td>
         <td> {{ $app->applied_start_date }}</td>
         <td> {{ $app->applied_end_date }}</td>
-        <td> {{ Leaveapplication::getLeaveDays($app->applied_start_date, $app->applied_end_date)}}</td>
-        </tr>
+        <td>{{Leaveapplication::getDays($app->applied_end_date,$app->applied_start_date,$app->is_weekend,$app->is_holiday)+1}}</td>
+       </tr>
       <?php $i++; ?>
    
     @endforeach

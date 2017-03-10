@@ -13,7 +13,7 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-          <a class="btn btn-info btn-sm" href="{{ URL::to('leavetypes/create')}}">new Leave type</a>
+          <a class="btn btn-info btn-sm" href="{{ URL::to('leavetypes/create')}}">new vacation type</a>
         </div>
         <div class="panel-body">
 
@@ -24,11 +24,20 @@
       <thead>
 
         <th>#</th>
-        <th>Leave Type</th>
+        <th>Vacation Type</th>
         <th>Days Entitled</th>
         <th>Action</th>
 
       </thead>
+
+     <tfoot>
+
+        <th>#</th>
+        <th>Vacation Type</th>
+        <th>Days Entitled</th>
+
+      </tfoot>
+
       <tbody>
 
         <?php $i = 1; ?>

@@ -55,13 +55,16 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'xpose',
+			'database'  => 'lixnetco_xdemo',
 			'username'  => 'root',
-			'password'  => 'mysql',
+			'password'  => '',
 			'port' => '3306',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
+			'options' => array(
+               PDO::MYSQL_ATTR_LOCAL_INFILE => true
+			),
 		),
 
 		'pgsql' => array(

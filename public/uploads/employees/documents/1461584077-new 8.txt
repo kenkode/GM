@@ -1,0 +1,187 @@
+<div role="tabpanel" class="tab-pane" id="kins">
+
+  <style>
+@font-face{font-family: Lobster;src: url('Lobster.otf');}
+h1{font-family: Lobster;text-align:center;}
+#ncontainer table{border-collapse:collapse;border-radius:25px;width:500px;}
+table, td, th{border:1px solid #00BB64;}
+tr,#ncontainer input,#ncontainer textarea,#fdate,#edate{height:30px;border:1px solid #fff;}
+#ncontainer textarea{height:50px; width:150px;border:1px solid #fff;}
+#dcontainer #fdate,#edate{height:30px; width:200px;border:1px solid #fff;}
+#ncontainer input:focus,#dcontainer input#fdate:focus,#dcontainer input#edate:focus,#ncontainer textarea:focus{border:1px solid yellow;} 
+.space{margin-bottom: 2px;}
+#ncontainer{margin-left:0px;}
+.but{width:270px;background:#00BB64;border:1px solid #00BB64;height:40px;border-radius:3px;color:white;margin-top:10px;margin:0px 0px 0px 290px;}
+</style>
+</head>
+<body>
+<h1><strong>Next of Kin</strong></h1>
+<div id='ncontainer'>
+
+<table id="nextkin" border="1" cellspacing="0">
+  <tr>
+    <th><input class='ncheck_all' type='checkbox' onclick="select_all()"/></th>
+    <th>#</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Other Names</th>
+    <th>ID Number</th>
+    <th>Relationship</th>
+    <th>Contact</th>
+  </tr>
+  <tr>
+    <td><input type='checkbox' class='ncase'/></td>
+    <td><span id='nsnum'>1.</span></td>
+    <td><input type='text' id='first_name' name='kin_first_name[]' value="{{{ Input::old('kin_first_name[]') }}}"/></td>
+    <td><input type='text' id='last_name' name='kin_last_name[]' value="{{{ Input::old('kin_last_name[]') }}}"/></td>
+    <td><input type='text' id='middle_name' name='kin_middle_name[]' value="{{{ Input::old('kin_middle_name[]') }}}"/></td>
+    <td><input type='text' id='id_number' name='id_number[]' value="{{{ Input::old('id_number[]') }}}"/> </td>
+    <td><input type='text' id='relationship' name='relationship[]' value="{{{ Input::old('relationship[]') }}}"/></td>
+    <td><textarea name="contact[]" id="contact">{{{ Input::old('contact') }}}</textarea></td>
+  </tr>
+</table>
+
+<button type="button" class='ndelete'>- Delete</button>
+<button type="button" class='naddmore'>+ Add More</button>
+</div>
+<script>
+$(".ndelete").on('click', function() {
+  $('.ncase:checkbox:checked').parents("#nextkin tr").remove();
+    $('.ncheck_all').prop("checked", false); 
+  check();
+
+});
+var i=2;
+$(".naddmore").on('click',function(){
+  count=$('#nextkin tr').length;
+    var data="<tr><td><input type='checkbox' class='ncase'/></td><td><span id='nsnum"+i+"'>"+count+".</span></td>";
+    data +="<td><input type='text' id='first_name"+i+"' name='kin_first_name[]' value='{{{ Input::old('kin_first_name[]') }}}'/></td><td><input type='text' id='last_name"+i+"' name='kin_last_name[]' value='{{{ Input::old('kin_last_name[]') }}}'/></td><td><input type='text' id='middle_name"+i+"' name='kin_middle_name[]' value='{{{ Input::old('kin_middle_name[]') }}}'/></td><td><input type='text' id='id_number"+i+"' name='id_number[]' value='{{{ Input::old('id_number[]') }}}'/></td><td><input type='text' id='relationship"+i+"' name='relationship[]' value='{{{ Input::old('relationship[]') }}}'/></td><td><textarea name='contact[]' id='contact"+i+"'>{{{ Input::old('contact') }}}</textarea></td>";
+  $('#nextkin').append(data);
+  i++;
+});
+
+function select_all() {
+  $('input[class=ncase]:checkbox').each(function(){ 
+    if($('input[class=ncheck_all]:checkbox:checked').length == 0){ 
+      $(this).prop("checked", false); 
+    } else {
+      $(this).prop("checked", true); 
+    } 
+  });
+}
+
+function check(){
+  obj=$('#nextkin tr').find('span');
+  $.each( obj, function( key, value ) {
+  id=value.id;
+  $('#'+id).html(key+1);
+  });
+  }
+
+</script>
+
+
+</div>
+
+<div role="tabpanel" class="tab-pane" id="documents">
+
+  <style>
+@font-face{font-family: Lobster;src: url('Lobster.otf');}
+h1{font-family: Lobster;text-align:center;}
+
+#dcontainer table{border-collapse:collapse;border-radius:25px;width:500px;}
+table, td, th{border:1px solid #00BB64;}
+tr,#dcontainer input,#dcontainer textarea{height:30px;border:1px solid #fff;}
+#dcontainer .checkbox,#dcontainer input[type=checkbox]{height:10px;border:1px solid #fff;}
+#f{width:200px;}
+#dcontainer textarea{height:50px; width:100px;border:1px solid #fff;}
+#dcontainer input:focus,#dcontainer input:focus{border:1px solid yellow;} 
+.space{margin-bottom: 2px;}
+#dcontainer{margin-left:0px;}
+.but{width:270px;background:#00BB64;border:1px solid #00BB64;height:40px;border-radius:3px;color:white;margin-top:10px;margin:0px 0px 0px 290px;}
+</style>
+</head>
+<body>
+<h1><strong>Employee Documents</strong></h1>
+<div id='dcontainer'>
+
+<table id="docEmp" width="500" border="1" cellspacing="0">
+  <tr>
+    <th><input class='dcheck_all' type='checkbox' onclick="dselect_dall()"/></th>
+    <th>#</th>
+    <th width="200">Document</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Date From</th>
+    <th>End Date</th>
+  </tr>
+  <tr>
+    <td><input type='checkbox' class='dcase'/></td>
+    <td><span id='dsnum'>1.</span></td>
+    <td id="f"><input type="file" name="path[]" id="path" value="{{{ Input::old('path[]') }}}"></td>
+    <td><input type='text' id='doc_name' name='doc_name[]' value="{{{ Input::old('doc_name[]') }}}"/></td>
+    <td><textarea style="width:150px" name="description[]" id="description">{{{ Input::old('contact') }}}</textarea></td>
+    <td><div class="right-inner-addon ">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        <input class="form-control expiry" readonly="readonly" placeholder="" type="text" name="fdate" id="fdate" value="{{{ Input::old('fdate') }}}">
+                    </div> </td>
+    <td><div class="right-inner-addon ">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        <input class="form-control expiry" readonly="readonly" placeholder="" type="text" name="edate" id="edate" value="{{{ Input::old('edate') }}}">
+                    </div></td>
+  </tr>
+</table>
+
+<button type="button" class='ddelete'>- Delete</button>
+<button type="button" class='daddmore'>+ Add More</button>
+
+ <div class="checkbox" style="margin-top:30px">
+                        <label>
+                            <input type="checkbox" id="ch" checked name="active">
+                                In Employment
+                        </label>
+                    </div>
+
+                  
+
+<div class="form-actions form-group" style="margin-top:30px">
+    <button type="submit" class="btn btn-primary btn-sm">Create Employee</button>
+  </div>
+</div>
+<script>
+$(".ddelete").on('click', function() {
+  $('.dcase:checkbox:checked').parents("#docEmp tr").remove();
+    $('.dcheck_all').prop("checked", false); 
+  dcheck();
+
+});
+var i=2;
+$(".daddmore").on('click',function(){
+  count=$('#docEmp tr').length;
+    var data="<tr><td><input type='checkbox' class='dcase'/></td><td><span id='dsnum"+i+"'>"+count+".</span></td>";
+    data +="<td id='f'><input type='file' id='path"+i+"' name='path[]' value='{{{ Input::old('path[]') }}}'/></td><td><input type='text' id='doc_name"+i+"' name='doc_name[]' value='{{{ Input::old('doc_name[]') }}}'/></td><td><textarea name='description[]' id='description"+i+"'>{{{ Input::old('description') }}}</textarea></td><td><div class='right-inner-addon'><i class='glyphicon glyphicon-calendar'></i><input class='form-control expiry' readonly='readonly' type='text' name='fdate' id='fdate' value='{{{ Input::old('fdate') }}}'></div></td><td><div class='right-inner-addon'><i class='glyphicon glyphicon-calendar'></i><input class='form-control expiry' readonly='readonly' type='text' name='edate' id='edate' value='{{{ Input::old('edate') }}}'></div></td>";
+  $('#docEmp').append(data);
+  i++;
+});
+
+function dselect_all() {
+  $('input[class=dcase]:checkbox').each(function(){ 
+    if($('input[class=dcheck_all]:checkbox:checked').length == 0){ 
+      $(this).prop("checked", false); 
+    } else {
+      $(this).prop("checked", true); 
+    } 
+  });
+}
+
+function dcheck(){
+  obj=$('#docEmp tr').find('span');
+  $.each( obj, function( key, value ) {
+  id=value.id;
+  $('#'+id).html(key+1);
+  });
+  }
+
+</script>
+
+</div>

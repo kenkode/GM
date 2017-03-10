@@ -26,7 +26,7 @@
    
     <fieldset>
         <div class="form-group">
-            <label for="username">Leave Type</label>
+            <label for="username">Vacation Type</label>
             <input class="form-control" placeholder="" type="text" name="name" id="name" value="{{{ Input::old('name') }}}">
         </div>
 

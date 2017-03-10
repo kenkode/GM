@@ -1,6 +1,6 @@
 @extends('layouts.payroll')
 @section('content')
-<br/>
+
 <?php
 
 
@@ -22,7 +22,7 @@ function asMoney($value) {
 
 <div class="row">
 
-<div class="col-lg-2">
+<div class="col-lg-3">
 
 <img src="{{asset('/public/uploads/employees/photo/'.$overtime->employee->photo) }}" width="150px" height="130px" alt=""><br>
 <br>
@@ -39,11 +39,23 @@ function asMoney($value) {
       <td><strong>Employee: </strong></td><td> {{$overtime->employee->last_name.' '.$overtime->employee->first_name}}</td>
       @endif
       </tr>
-      <tr><td><strong>Type: </strong></td><td>{{$overtime->type}}</td></tr>
-      <tr><td><strong>Pay Rate: </strong></td><td>{{$overtime->rate}}</td></tr>
       <tr><td><strong>Period Worked: </strong></td><td>{{$overtime->period}}</td></tr>
+
+      <tr><td><strong>Formular: </strong></td><td>{{$overtime->formular}}</td></tr>
+      @if($overtime->instalments > 1)
+      <tr><td><strong>Instalments: </strong></td><td>{{$overtime->instalments}}</td></tr>
+      <tr><td><strong>Amount: </strong></td><td align="right">{{asMoney($overtime->amount)}}</td></tr>
+      <tr><td><strong>Total Amount: </strong></td><td align="right">{{asMoney((double)$overtime->amount*(double)$overtime->instalments*(double)$overtime->period)}}</td></tr>
+      @else
       <tr><td><strong>Amount: </strong></td><td align="right">{{asMoney($overtime->amount)}}</td></tr>
       <tr><td><strong>Total Amount: </strong></td><td align="right">{{asMoney((double)$overtime->amount*(double)$overtime->period)}}</td></tr>
+      @endif
+      @if($overtime->formular == 'One Time' || $overtime->formular == 'Instalments')
+      <tr><td><strong>Start Date: </strong></td><td>{{$overtime->overtime_date}}</td></tr>
+      <tr><td><strong>End Date: </strong></td><td>{{$overtime->last_day_month}}</td></tr>
+      @else
+      <tr><td><strong>Start Date: </strong></td><td>{{$overtime->overtime_date}}</td></tr>
+      @endif
 </table>
 </div>
 

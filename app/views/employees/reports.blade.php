@@ -1,9 +1,5 @@
-@extends('layouts.main')
+@extends('layouts.ports')
 @section('content')
-<br/>
-
-
-
 
 
 <div class="row">
@@ -28,12 +24,20 @@
 
       <li>
 
-        <a href="{{ URL::to('reports/employeelist') }}" target="_blank"> Employee List report</a>
+        <a href="{{ URL::to('reports/selectEmployeeStatus') }}"> Employee List report</a>
 
       </li>
 
       <li>
             <a href="{{ URL::to('reports/nextofkin/selectEmployee') }}" >Next of Kin Report</a>
+        </li>
+
+        <li>
+            <a href="{{ URL::to('reports/compliance/selectEmployee') }}" >Employee Compliance report </a>
+        </li>
+
+        <li>
+            <a href="{{ URL::to('reports/promotion/selectEmployee') }}" >Employee Promotion report </a>
         </li>
 
        <li>

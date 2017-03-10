@@ -1,10 +1,9 @@
 @extends('layouts.leave')
 @section('content')
-<br/>
 
 <div class="row">
 	<div class="col-lg-12">
-  <h3>Update Leave Type</h3>
+  <h3>Update Vacation Type</h3>
 
 <hr>
 </div>	
@@ -28,7 +27,7 @@
    
     <fieldset>
         <div class="form-group">
-            <label for="username">Leave Type</label>
+            <label for="username">Vacation Type</label>
             <input class="form-control" placeholder="" type="text" name="name" id="name" value="{{ $leavetype->name}}">
         </div>
 

@@ -1,0 +1,58 @@
+[11-Mar-2016 09:56:31 UTC] PHP Fatal error:  Can't use function return value in write context in /home/umashcok/public_html/cloud/umash/app/controllers/ReportsController.php on line 78
+[11-Mar-2016 09:57:54 UTC] PHP Fatal error:  Can't use function return value in write context in /home/umashcok/public_html/cloud/umash/app/controllers/ReportsController.php on line 78
+[11-Mar-2016 09:59:01 UTC] PHP Fatal error:  Can't use function return value in write context in /home/umashcok/public_html/cloud/umash/app/controllers/ReportsController.php on line 78
+[11-Mar-2016 10:03:44 UTC] PHP Fatal error:  Can't use function return value in write context in /home/umashcok/public_html/cloud/umash/app/controllers/ReportsController.php on line 130
+[15-Mar-2016 08:04:04 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 64 bytes) in /home/umashcok/public_html/cloud/umash/vendor/dompdf/dompdf/include/style.cls.php on line 574
+[15-Mar-2016 08:05:24 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 85 bytes) in /home/umashcok/public_html/cloud/umash/vendor/dompdf/dompdf/include/style.cls.php on line 684
+[02-Aug-2016 14:31:34 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/routes.php on line 244
+[02-Aug-2016 14:34:20 UTC] PHP Parse error:  syntax error, unexpected ''organization_id'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/routes.php on line 2430
+[09-Aug-2016 12:03:02 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/models/Account.php on line 122
+[09-Aug-2016 12:03:22 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/models/Account.php on line 122
+[09-Aug-2016 12:05:17 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/models/Account.php on line 122
+[09-Aug-2016 12:06:29 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/models/Account.php on line 122
+[09-Aug-2016 12:11:31 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/models/Account.php on line 122
+[09-Aug-2016 12:12:07 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/models/Account.php on line 122
+[09-Aug-2016 12:12:15 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/controllers/PaymentsController.php on line 46
+[09-Aug-2016 12:27:35 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/models/Account.php on line 122
+[09-Aug-2016 13:34:50 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/controllers/StocksController.php on line 19
+[09-Aug-2016 13:35:06 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/controllers/StocksController.php on line 19
+[09-Aug-2016 13:35:07 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/controllers/StocksController.php on line 19
+[10-Aug-2016 10:19:27 UTC] PHP Parse error:  syntax error, unexpected 'Audit' (T_STRING) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/controllers/BranchesController.php on line 14
+[10-Aug-2016 10:49:16 UTC] PHP Parse error:  syntax error, unexpected 'Audit' (T_STRING) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/controllers/BranchesController.php on line 14
+[10-Aug-2016 11:26:27 UTC] PHP Parse error:  syntax error, unexpected 'Audit' (T_STRING) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/controllers/BranchesController.php on line 14
+[10-Aug-2016 13:16:20 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[10-Aug-2016 13:17:03 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[10-Aug-2016 13:19:14 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[11-Aug-2016 10:03:32 UTC] PHP Parse error:  syntax error, unexpected 'Audit' (T_STRING) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/controllers/BranchesController.php on line 14
+[11-Aug-2016 10:05:40 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[11-Aug-2016 12:23:09 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/models/Loantransaction.php on line 164
+[11-Aug-2016 12:37:41 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/models/Loantransaction.php on line 164
+[11-Aug-2016 12:56:39 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[15-Aug-2016 11:23:05 UTC] PHP Parse error:  syntax error, unexpected 'Audit' (T_STRING) in /home/lixnetco/public_html/demo.xaraenterprise/demo.xaraenterprise/app/controllers/BranchesController.php on line 14
+[26-Oct-2016 11:41:47 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[26-Oct-2016 11:43:48 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[28-Oct-2016 09:32:54 UTC] PHP Parse error:  syntax error, unexpected 'charges' (T_STRING) in /home/lixnetco/public_html/demo/app/routes.php on line 2520
+[28-Oct-2016 10:14:57 UTC] PHP Parse error:  syntax error, unexpected ']', expecting ',' or ';' in /home/lixnetco/public_html/demo/app/storage/views/7f16207d372b1bdede7134b104c0fdca on line 36
+[28-Oct-2016 10:18:00 UTC] PHP Parse error:  syntax error, unexpected ']', expecting ',' or ';' in /home/lixnetco/public_html/demo/app/storage/views/7f16207d372b1bdede7134b104c0fdca on line 36
+[28-Oct-2016 10:18:24 UTC] PHP Parse error:  syntax error, unexpected ']', expecting ',' or ';' in /home/lixnetco/public_html/demo/app/storage/views/7f16207d372b1bdede7134b104c0fdca on line 36
+[28-Oct-2016 10:19:38 UTC] PHP Parse error:  syntax error, unexpected ']', expecting ',' or ';' in /home/lixnetco/public_html/demo/app/storage/views/7f16207d372b1bdede7134b104c0fdca on line 36
+[28-Oct-2016 11:30:42 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::save() in /home/lixnetco/public_html/demo/app/controllers/SavingproductsController.php on line 160
+[28-Oct-2016 11:31:04 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::save() in /home/lixnetco/public_html/demo/app/controllers/SavingproductsController.php on line 160
+[28-Oct-2016 11:33:00 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::save() in /home/lixnetco/public_html/demo/app/controllers/SavingproductsController.php on line 160
+[28-Oct-2016 11:35:09 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::save() in /home/lixnetco/public_html/demo/app/controllers/SavingproductsController.php on line 160
+[28-Oct-2016 11:37:35 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::save() in /home/lixnetco/public_html/demo/app/controllers/SavingproductsController.php on line 160
+[28-Oct-2016 11:40:01 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Eloquent\Collection::save() in /home/lixnetco/public_html/demo/app/controllers/SavingproductsController.php on line 160
+[01-Nov-2016 11:34:55 UTC] PHP Fatal error:  Class 'Supervisor' not found in /home/lixnetco/public_html/demo/app/models/Leaveapplication.php on line 67
+[02-Nov-2016 12:10:58 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[02-Nov-2016 12:11:14 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[02-Nov-2016 12:11:34 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[02-Nov-2016 12:22:11 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[02-Nov-2016 12:23:33 UTC] PHP Fatal error:  Call to a member function clearAll() on a non-object in /home/lixnetco/public_html/demo/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/SimpleMimeEntity.php on line 830
+[08-Nov-2016 13:56:55 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/lixnetco/public_html/demo/app/models/Leaveapplication.php on line 295
+[08-Nov-2016 13:57:15 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/lixnetco/public_html/demo/app/models/Leaveapplication.php on line 295
+[08-Nov-2016 13:58:36 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/lixnetco/public_html/demo/app/models/Leaveapplication.php on line 295
+[08-Nov-2016 13:58:40 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/lixnetco/public_html/demo/app/models/Leaveapplication.php on line 295
+[09-Nov-2016 14:25:03 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo/app/controllers/UsersController.php on line 221
+[09-Nov-2016 14:26:06 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo/app/controllers/UsersController.php on line 221
+[09-Nov-2016 14:26:30 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo/app/controllers/UsersController.php on line 221
+[09-Nov-2016 14:26:45 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/lixnetco/public_html/demo/app/controllers/UsersController.php on line 221

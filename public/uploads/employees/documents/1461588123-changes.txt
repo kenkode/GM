@@ -1,0 +1,15 @@
+dashboard
+logout
+fix top menu
+employee details on new employee
+add new on select
+multiple entries
+language tab
+all reports on one tab
+add employee select while creating employee, put asteric on mandatory fields
+manager approve
+all migrate on one page
+report dashboard 
+warn no process for the month
+drop downs on nav main tab
+show earnings and deduction on payroll summary and preview

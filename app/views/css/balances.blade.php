@@ -14,7 +14,7 @@
                     <div class="row">
                       
                         <div>
-                          <h2>Leave</h2>
+                          <h2>Vacation</h2>
                         </div>
                       
                     </div>
@@ -44,7 +44,7 @@
          
           <thead>
             <th>#</th>
-            <th>Leave Type</th>
+            <th>Vacation Type</th>
             <th>Entitled Days</th>
             <th>Remaining Days</th>
             

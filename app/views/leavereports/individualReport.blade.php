@@ -1,8 +1,9 @@
 <?php
 
-
+if (!function_exists('asMoney')){
 function asMoney($value) {
   return number_format($value, 2);
+}
 }
 
 ?>
@@ -25,7 +26,7 @@ th {
 }
 .table {
   width: 100%;
-  margin-bottom: 2px;
+  margin-bottom: 50px;
 }
 hr {
   margin-top: 1px;
@@ -45,7 +46,7 @@ body {
 
 
  @page { margin: 170px 30px; }
- .header { position: fixed; left: 0px; top: -150px; right: 0px; height: 150px;  text-align: center; }
+ .header { position: top; left: 0px; top: -150px; right: 0px; height: 150px;  text-align: center; }
  .content {margin-top: -100px; margin-bottom: -150px}
  .footer { position: fixed; left: 0px; bottom: -180px; right: 0px; height: 50px;  }
  .footer .page:after { content: counter(page, upper-roman); }
@@ -58,7 +59,7 @@ body {
 
 <body>
 
-  <div class="header">
+  <div class="header" style='margin-top:-150px;'>
      <table >
 
       <tr>
@@ -67,16 +68,16 @@ body {
        
         <td style="width:150px">
 
-            <img src="{{ '../images/logo.png' }}" alt="{{ $organization->logo }}" width="150px"/>
+            <img src="{{asset('public/uploads/logo/'.$organization->logo)}}" alt="{{ $organization->logo }}" width="150px"/>
     
         </td>
 
         <td>
         <strong>
-          {{ strtoupper($organization->name)}}<br>
-          </strong>
-          {{ $organization->phone}} |
-          {{ $organization->email}} |
+          {{ strtoupper($organization->name)}}
+          </strong><br>
+          {{ $organization->phone}}<br>
+          {{ $organization->email}}<br>
           {{ $organization->website}}<br>
           {{ $organization->address}}
        
@@ -98,15 +99,20 @@ body {
    </div>
 
 
-
+<br>
 <div class="footer">
      <p class="page">Page <?php $PAGE_NUM ?></p>
    </div>
+<br>
 
-
-	<div class="content" style='margin-top:0px;'>
-   <div align="center"><strong>Leave Report for {{$employee->first_name.' '.$employee->last_name}}</strong></div>
-
+	<div class="content" style='margin-top:-70px;'>
+    @if($employee->middle_name != null || $employee->middle_name != '')
+     <div align="center"><strong>Vacation Report for {{$employee->personal_file_number.' : '.$employee->first_name.' '.$employee->middle_name.' '.$employee->last_name}}</strong></div>
+    @else
+     <div align="center"><strong>Vacation Report for {{$employee->personal_file_number.' : '.$employee->first_name.' '.$employee->last_name}}</strong></div>
+    @endif
+   
+<br>
     <table class="table table-bordered" border='1' cellspacing='0' cellpadding='0'>
 
       <tr>
@@ -114,13 +120,16 @@ body {
 
 
         <td width='20'><strong># </strong></td>
-        <td><strong>Leave Type </strong></td>
+        <td><strong>Vacation Type </strong></td>
         <td><strong>Beginning Balance </strong></td>
-        <td><strong>Leave Taken </strong></td>
-        <td><strong>Leave Balance </strong></td>
+        <td><strong>Vacation Taken </strong></td>
+        <td><strong>Vacation Balance </strong></td>
+        <td><strong>Pay Rate </strong></td>
+        <td><strong>Total Value </strong></td>
       </tr>
 
     <?php
+    $totaldays = 0; $totalpay = 0; $totalvalue = 0;
 
     $levename = null;
     $i =1;
@@ -133,18 +142,24 @@ body {
       ?>
      
       <?php 
-          } else {
+          } else if($application->approved_start_date<=date('Y-m-d')){
             ?>
             <tr>
-
+      <?php
+        $bal = Leaveapplication::getBalanceDays($employee, $application->leavetype)-Leaveapplication::getDaysTaken($employee, $application->leavetype);
+      ?>
 
        <td td width='20'>{{$i}}</td>
         <td> {{ $application->leavetype->name }}</td>
         <td> {{ Leaveapplication::getBalanceDays($employee, $application->leavetype)}}</td>
         <td> {{ Leaveapplication::getDaysTaken($employee, $application->leavetype)}}</td>
         <td> {{ (Leaveapplication::getBalanceDays($employee, $application->leavetype))-(Leaveapplication::getDaysTaken($employee, $application->leavetype)) }}</td>
+        <td> {{ number_format($employee->basic_pay/ 30, 2)}}</td>
+        <td> {{ number_format($bal * ( $employee->basic_pay/ 30), 2) }}</td>
+        
         </tr>
-        <?php
+
+       <?php
          $i++;
           }
 

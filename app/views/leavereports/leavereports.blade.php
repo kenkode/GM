@@ -1,14 +1,9 @@
-@extends('layouts.leave')
+@extends('layouts.leave_ports')
 @section('content')
-<br/>
-
-
-
-
 
 <div class="row">
     <div class="col-lg-12">
-  <h3>Leave Reports</h3>
+  <h3>Vacation Reports</h3>
 
 <hr>
 </div>  
@@ -21,23 +16,27 @@
     <ul>
 
        <li>
-            <a href="{{ URL::to('leaveReports/selectApplicationPeriod') }}"> Leave Application</a>
+            <a href="{{ URL::to('leaveReports/selectApplicationPeriod') }}"> Vacation Application</a>
        </li>
 
        <li>
-          <a href="{{ URL::to('leaveReports/selectApprovedPeriod') }}">Leaves Approved</a>
+            <a href="{{ URL::to('leaveReports/selectRosterPeriod') }}"> Vacation Roster</a>
        </li>
 
        <li>
-          <a href="{{ URL::to('leaveReports/selectRejectedPeriod') }}">Leaves Rejected</a>
+          <a href="{{ URL::to('leaveReports/selectApprovedPeriod') }}">Vacation Approved</a>
        </li>
 
        <li>
-          <a href="{{ URL::to('leaveReports/selectLeave') }}">Leaves Balances</a>
+          <a href="{{ URL::to('leaveReports/selectRejectedPeriod') }}">Vacation Rejected</a>
+       </li>
+
+       <li>
+          <a href="{{ URL::to('leaveReports/selectLeave') }}">Vacation Balances</a>
        </li>
     
        <li>
-          <a href="{{ URL::to('leaveReports/selectLeaveType') }}"> Employees on Leave</a>
+          <a href="{{ URL::to('leaveReports/selectLeaveType') }}"> Employees on vacation </a>
        </li>  
 
        <li>

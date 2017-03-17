@@ -248,7 +248,7 @@ function asMoney($value) {
           ?>
           <?php
           if($employee->income_tax_applicable == 1 && (double)Payroll::gross($employee->id,$period)>=11135.67 && $employee->income_tax_relief_applicable == 1){
-           $totaltaxrelief = $totaltaxrelief + 1162;
+           $totaltaxrelief = $totaltaxrelief + 1280;
           }
           ?>
           <?php
@@ -268,7 +268,7 @@ function asMoney($value) {
           @endforeach
           <td align="right">{{ asMoney((double)Payroll::totaltax($employee->id,$period)) }}</td>
           @if($employee->income_tax_applicable == 1 && (double)Payroll::gross($employee->id,$period)>=11135.67 && $employee->income_tax_relief_applicable == 1)
-          <td align="right">{{ asMoney('1162') }}</td>
+          <td align="right">{{ asMoney('1280') }}</td>
           @else
           <td align="right">{{ asMoney('0.00') }}</td>
           @endif
